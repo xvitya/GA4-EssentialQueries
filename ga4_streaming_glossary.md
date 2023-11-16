@@ -133,9 +133,6 @@ The app_info RECORD contains information about the app in which the event was in
 | `app_info.install_source`     | STRING    | The store that installed the app.                                             |
 | `app_info.version`            | STRING    | The app's versionName (Android) or short bundle version.                      |
 
-# GA4 Streaming Schema Glossary
-
-This glossary provides explanations for each field in the GA4 streaming schema used in BigQuery.
 
 # COLLECTED TRAFFIC SOURCE
 The collected_traffic_source RECORD contains the traffic source data that was collected with the event.
@@ -151,3 +148,14 @@ The collected_traffic_source RECORD contains the traffic source data that was co
 | `gclid`                       | STRING    | The Google click identifier that was collected with the event.                                                        |
 | `dclid`                       | STRING    | The Google Marketing Platform (GMP) identifier that was collected with the event.                                     |
 | `srsltid`                     | STRING    | The Google Merchant Center identifier that was collected with the event.                                              |
+
+
+# TRAFFIC SOURCE
+The traffic_source RECORD contains information about the traffic source that first acquired the user. This record is not populated in intraday tables.
+Note: The traffic_source values do not change if the user interacts with subsequent campaigns after installation.
+
+| Field Name                     | Data Type | Description                                                                            |
+|--------------------------------|-----------|----------------------------------------------------------------------------------------|
+| `traffic_source.name`          | STRING    | Name of the marketing campaign that first acquired the user. This field is not populated in intraday tables. |
+| `traffic_source.medium`        | STRING    | Name of the medium (paid search, organic search, email, etc.) that first acquired the user. This field is not populated in intraday tables. |
+| `traffic_source.source`        | STRING    | Name of the network that first acquired the user. This field is not populated in intraday tables. |
