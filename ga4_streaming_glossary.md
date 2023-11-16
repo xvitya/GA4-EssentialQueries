@@ -89,3 +89,36 @@ The user_ltv RECORD contains Lifetime Value information about the user. This REC
 |--------------------------------------|-----------|------------------------------------------------------------------|
 | `user_ltv.revenue`                   | FLOAT     | The Lifetime Value (revenue) of the user. This field is not populated in intraday tables. |
 | `user_ltv.currency`                  | STRING    | The Lifetime Value (currency) of the user. This field is not populated in intraday tables. |
+
+# DEVICE
+The device RECORD contains information about the device from which the event originated.
+
+| Field Name                               | Data Type | Description                                                                                     |
+|------------------------------------------|-----------|-------------------------------------------------------------------------------------------------|
+| `device.category`                        | STRING    | The device category (mobile, tablet, desktop).                                                  |
+| `device.mobile_brand_name`               | STRING    | The device brand name.                                                                          |
+| `device.mobile_model_name`               | STRING    | The device model name.                                                                          |
+| `device.mobile_marketing_name`           | STRING    | The device marketing name.                                                                      |
+| `device.mobile_os_hardware_model`        | STRING    | The device model information retrieved directly from the operating system.                      |
+| `device.operating_system`                | STRING    | The operating system of the device.                                                             |
+| `device.operating_system_version`        | STRING    | The OS version.                                                                                |
+| `device.vendor_id`                       | STRING    | IDFV (present only if IDFA is not collected).                                                  |
+| `device.advertising_id`                  | STRING    | Advertising ID/IDFA.                                                                           |
+| `device.language`                        | STRING    | The OS language.                                                                               |
+| `device.time_zone_offset_seconds`        | INTEGER   | The offset from GMT in seconds.                                                                |
+| `device.is_limited_ad_tracking`          | BOOLEAN   | The device's Limit Ad Tracking setting. On iOS14+, returns false if the IDFA is non-zero.       |
+| `device.web_info.browser`                | STRING    | The browser in which the user viewed content.                                                  |
+| `device.web_info.browser_version`        | STRING    | The version of the browser in which the user viewed content.                                   |
+| `device.web_info.hostname`               | STRING    | The hostname associated with the logged event.                                                 |
+
+# GEO
+The geo RECORD contains information about the geographic location where the event was initiated.
+
+| Field Name               | Data Type | Description                                                                       |
+|--------------------------|-----------|-----------------------------------------------------------------------------------|
+| `geo.continent`          | STRING    | The continent from which events were reported, based on IP address.                |
+| `geo.sub_continent`      | STRING    | The subcontinent from which events were reported, based on IP address.             |
+| `geo.country`            | STRING    | The country from which events were reported, based on IP address.                  |
+| `geo.region`             | STRING    | The region from which events were reported, based on IP address.                   |
+| `geo.metro`              | STRING    | The metro from which events were reported, based on IP address.                    |
+| `geo.city`               | STRING    | The city from which events were reported, based on IP address.                     |
