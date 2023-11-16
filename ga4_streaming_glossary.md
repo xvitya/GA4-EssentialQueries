@@ -159,3 +159,78 @@ Note: The traffic_source values do not change if the user interacts with subsequ
 | `traffic_source.name`          | STRING    | Name of the marketing campaign that first acquired the user. This field is not populated in intraday tables. |
 | `traffic_source.medium`        | STRING    | Name of the medium (paid search, organic search, email, etc.) that first acquired the user. This field is not populated in intraday tables. |
 | `traffic_source.source`        | STRING    | Name of the network that first acquired the user. This field is not populated in intraday tables. |
+
+
+# Stream and Platform
+The stream and platform fields contain information about the stream and the app platform.
+
+| Field Name          | Data Type | Description                                                                   |
+|---------------------|-----------|-------------------------------------------------------------------------------|
+| `stream_id`         | STRING    | The numeric ID of the data stream from which the event originated.             |
+| `platform`          | STRING    | The data stream platform (Web, iOS, or Android) from which the event originated.|
+
+
+# Ecommerce
+The ecommerce RECORD contains information about any ecommerce events that have been set up on a website or app.
+
+| Field Name                            | Data Type | Description                                                                                          |
+|---------------------------------------|-----------|------------------------------------------------------------------------------------------------------|
+| `ecommerce.total_item_quantity`       | INTEGER   | Total number of items in this event, which is the sum of items.quantity.                              |
+| `ecommerce.purchase_revenue_in_usd`   | FLOAT     | Purchase revenue of this event, represented in USD with standard unit. Populated for purchase events only. |
+| `ecommerce.purchase_revenue`          | FLOAT     | Purchase revenue of this event, represented in the local currency with standard unit. Populated for purchase events only. |
+| `ecommerce.refund_value_in_usd`      | FLOAT     | The amount of refund in this event, represented in USD with standard unit. Populated for refund events only. |
+| `ecommerce.refund_value`              | FLOAT     | The amount of refund in this event, represented in the local currency with standard unit. Populated for refund events only. |
+| `ecommerce.shipping_value_in_usd`    | FLOAT     | The shipping cost in this event, represented in USD with standard unit.                               |
+| `ecommerce.shipping_value`            | FLOAT     | The shipping cost in this event, represented in the local currency.                                   |
+| `ecommerce.tax_value_in_usd`         | FLOAT     | The tax value in this event, represented in USD with standard unit.                                   |
+| `ecommerce.tax_value`                 | FLOAT     | The tax value in this event, represented in the local currency with standard unit.                   |
+| `ecommerce.transaction_id`            | STRING    | The transaction ID of the ecommerce transaction.                                                    |
+| `ecommerce.unique_items`              | INTEGER   | The number of unique items in this event, based on item_id, item_name, and item_brand.               |
+
+
+# ITEMS
+
+The items RECORD contains information about items included in an event. It is repeated for each item.
+
+| Field Name                                     | Data Type | Description                                                                                                 |
+|------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------|
+| `items.item_id`                                | STRING    | The ID of the item.                                                                                         |
+| `items.item_name`                              | STRING    | The name of the item.                                                                                       |
+| `items.item_brand`                             | STRING    | The brand of the item.                                                                                      |
+| `items.item_variant`                           | STRING    | The variant of the item.                                                                                    |
+| `items.item_category`                          | STRING    | The category of the item.                                                                                   |
+| `items.item_category2`                         | STRING    | The subcategory of the item.                                                                                |
+| `items.item_category3`                         | STRING    | The subcategory of the item.                                                                                |
+| `items.item_category4`                         | STRING    | The subcategory of the item.                                                                                |
+| `items.item_category5`                         | STRING    | The subcategory of the item.                                                                                |
+| `items.price_in_usd`                           | FLOAT     | The price of the item, in USD with standard unit.                                                           |
+| `items.price`                                  | FLOAT     | The price of the item in local currency.                                                                   |
+| `items.quantity`                               | INTEGER   | The quantity of the item. Quantity set to 1 if not specified.                                              |
+| `items.item_revenue_in_usd`                    | FLOAT     | The revenue of this item, calculated as price_in_usd * quantity. Populated for purchase events only, in USD with standard unit. |
+| `items.item_revenue`                           | FLOAT     | The revenue of this item, calculated as price * quantity. Populated for purchase events only, in local currency with standard unit. |
+| `items.item_refund_in_usd`                     | FLOAT     | The refund value of this item, calculated as price_in_usd * quantity. Populated for refund events only, in USD with standard unit. |
+| `items.item_refund`                            | FLOAT     | The refund value of this item, calculated as price * quantity. Populated for refund events only, in local currency with standard unit. |
+| `items.coupon`                                | STRING    | Coupon code applied to this item.                                                                          |
+| `items.affiliation`                           | STRING    | A product affiliation to designate a supplying company or brick and mortar store location.                 |
+| `items.location_id`                           | STRING    | The location associated with the item.                                                                     |
+| `items.item_list_id`                          | STRING    | The ID of the list in which the item was presented to the user.                                            |
+| `items.item_list_name`                        | STRING    | The name of the list in which the item was presented to the user.                                           |
+| `items.item_list_index`                       | STRING    | The position of the item in a list.                                                                        |
+| `items.promotion_id`                          | STRING    | The ID of a product promotion.                                                                             |
+| `items.promotion_name`                        | STRING    | The name of a product promotion.                                                                           |
+| `items.creative_name`                         | STRING    | The name of a creative used in a promotional spot.                                                         |
+| `items.creative_slot`                         | STRING    | The name of a creative slot.                                                                               |
+
+
+## Item Params
+The item_params RECORD stores the custom item parameters that you defined. Note that predefined item parameters like item_id, item_name, etc., are not included here; instead, they are exported as explicit fields.
+The set of parameters stored in the item_params RECORD is unique to each implementation. To learn more about ecommerce implementations and the Google Analytics 4 items array, see Measure ecommerce.
+
+| Field Name                                      | Data Type | Description                                                                                               |
+|-------------------------------------------------|-----------|-----------------------------------------------------------------------------------------------------------|
+| `items.item_params.key`                         | STRING    | The name of the item parameter.                                                                            |
+| `items.item_params.value`                       | RECORD    | A record containing the item parameter’s value.                                                           |
+| `items.item_params.value.string_value`          | STRING    | If the item parameter is represented by a string, it is populated in this field.                           |
+| `items.item_params.value.int_value`             | INTEGER   | If the item parameter is represented by an integer, it is populated in this field.                         |
+| `items.item_params.value.double_value`          | FLOAT     | If the item parameter is represented by a double value, it is populated in this field.                     |
+| `items.item_params.value.float_value`           | FLOAT     | If the item parameter is represented by a floating-point value, it is populated in this field.            |
