@@ -1,7 +1,7 @@
 SELECT
   event_param.value.string_value AS page,
   COUNT(DISTINCT event_bundle_sequence_id) AS sessions_started
-suka
+,COUNT(suka
 
 FROM
   `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
