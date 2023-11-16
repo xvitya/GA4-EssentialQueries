@@ -1,7 +1,7 @@
 # GA4 Streaming Schema Glossary
 >This glossary provides explanations for each field in the GA4 streaming schema used in BigQuery.
 
-## EVENT
+# EVENT
 >The event fields contain information that uniquely identifies an event.
 
 | Field Name          | Data Type | Description                                                |
@@ -19,7 +19,7 @@
 
 
 
-## event_params RECORD
+### event_params RECORD
 >The event_params RECORD can store campaign-level and contextual event parameters as well as any user-defined event parameters. The event_params RECORD is repeated for each key that is associated with an event. The set of parameters stored in the event_params RECORD is unique to each implementation. To see the complete list of event parameters for your implementation, query the event parameter list.
 
 | Field Name                          | Data Type | Description                                                                                     |
@@ -32,7 +32,7 @@
 | `event_params.value.float_value`    | FLOAT     | If the event parameter is represented by a floating point value, it is populated in this field. This field is not currently in use. |
 
 
-## item_params RECORD
+### item_params RECORD
 >The item_params RECORD can store item parameters as well as any user-defined item parameters. The set of parameters stored in the item_params RECORD is unique to each implementation.
 
 | Field Name                            | Data Type | Description                                                                                           |
@@ -47,10 +47,7 @@
 
 # USER
 
-# GA4 Streaming Schema Glossary
-This glossary provides explanations for each field in the GA4 streaming schema used in BigQuery.
-
-## User Fields
+### User Fields
 The user fields contain information that uniquely identifies the user associated with the event.
 
 | Field Name                       | Data Type | Description                                                                       |
@@ -60,7 +57,7 @@ The user fields contain information that uniquely identifies the user associated
 | `user_pseudo_id`                 | STRING    | The pseudonymous id (e.g., app instance ID) for the user.                         |
 | `user_first_touch_timestamp`     | INTEGER   | The time (in microseconds) at which the user first opened the app or visited the site. |
 
-## Privacy Info Fields
+### Privacy Info Fields
 The privacy_info fields contain information based on the consent status of a user when consent mode is enabled.
 
 | Field Name                              | Data Type | Description                                                      |
@@ -69,7 +66,7 @@ The privacy_info fields contain information based on the consent status of a use
 | `privacy_info.analytics_storage`         | STRING    | Whether Analytics storage is enabled for the user. Possible values: Yes, No, Unset. |
 | `privacy_info.uses_transient_token`     | STRING    | Whether a web user has denied Analytics storage and the developer has enabled measurement without cookies based on transient tokens in server data. Possible values: Yes, No, Unset. |
 
-## User Properties
+### User Properties
 The user_properties RECORD contains any user properties that you have set. It is repeated for each key that is associated with a user.
 
 | Field Name                               | Data Type | Description                                                      |
@@ -82,7 +79,7 @@ The user_properties RECORD contains any user properties that you have set. It is
 | `user_properties.value.float_value`      | FLOAT     | This field is currently unused.                                  |
 | `user_properties.value.set_timestamp_micros` | INTEGER | The time (in microseconds) at which the user property was last set. |
 
-## User LTV
+### User LTV
 The user_ltv RECORD contains Lifetime Value information about the user. This RECORD is not populated in intraday tables.
 
 | Field Name                           | Data Type | Description                                                      |
@@ -161,7 +158,7 @@ Note: The traffic_source values do not change if the user interacts with subsequ
 | `traffic_source.source`        | STRING    | Name of the network that first acquired the user. This field is not populated in intraday tables. |
 
 
-# Stream and Platform
+# STREAM AND PLATFORM
 The stream and platform fields contain information about the stream and the app platform.
 
 | Field Name          | Data Type | Description                                                                   |
@@ -170,7 +167,7 @@ The stream and platform fields contain information about the stream and the app 
 | `platform`          | STRING    | The data stream platform (Web, iOS, or Android) from which the event originated.|
 
 
-# Ecommerce
+# ECOMMERCE
 The ecommerce RECORD contains information about any ecommerce events that have been set up on a website or app.
 
 | Field Name                            | Data Type | Description                                                                                          |
@@ -189,7 +186,6 @@ The ecommerce RECORD contains information about any ecommerce events that have b
 
 
 # ITEMS
-
 The items RECORD contains information about items included in an event. It is repeated for each item.
 
 | Field Name                                     | Data Type | Description                                                                                                 |
@@ -222,7 +218,7 @@ The items RECORD contains information about items included in an event. It is re
 | `items.creative_slot`                         | STRING    | The name of a creative slot.                                                                               |
 
 
-## Item Params
+### Item Params
 The item_params RECORD stores the custom item parameters that you defined. Note that predefined item parameters like item_id, item_name, etc., are not included here; instead, they are exported as explicit fields.
 The set of parameters stored in the item_params RECORD is unique to each implementation. To learn more about ecommerce implementations and the Google Analytics 4 items array, see Measure ecommerce.
 
