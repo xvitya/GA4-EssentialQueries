@@ -132,3 +132,22 @@ The app_info RECORD contains information about the app in which the event was in
 | `app_info.firebase_app_id`    | STRING    | The Firebase App ID associated with the app.                                  |
 | `app_info.install_source`     | STRING    | The store that installed the app.                                             |
 | `app_info.version`            | STRING    | The app's versionName (Android) or short bundle version.                      |
+
+# GA4 Streaming Schema Glossary
+
+This glossary provides explanations for each field in the GA4 streaming schema used in BigQuery.
+
+# COLLECTED TRAFFIC SOURCE
+The collected_traffic_source RECORD contains the traffic source data that was collected with the event.
+
+| Field Name                    | Data Type | Description                                                                                                          |
+|-------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
+| `manual_campaign_id`          | STRING    | The manual campaign id (utm_id) that was collected with the event.                                                    |
+| `manual_campaign_name`        | STRING    | The manual campaign name (utm_campaign) that was collected with the event.                                           |
+| `manual_source`               | STRING    | The manual campaign source (utm_source) that was collected with the event. Also includes parsed parameters from referral params, not just UTM values. |
+| `manual_medium`               | STRING    | The manual campaign medium (utm_medium) that was collected with the event. Also includes parsed parameters from referral params, not just UTM values. |
+| `manual_term`                 | STRING    | The manual campaign keyword/term (utm_term) that was collected with the event.                                      |
+| `manual_content`              | STRING    | The additional manual campaign metadata (utm_content) that was collected with the event.                             |
+| `gclid`                       | STRING    | The Google click identifier that was collected with the event.                                                        |
+| `dclid`                       | STRING    | The Google Marketing Platform (GMP) identifier that was collected with the event.                                     |
+| `srsltid`                     | STRING    | The Google Merchant Center identifier that was collected with the event.                                              |
