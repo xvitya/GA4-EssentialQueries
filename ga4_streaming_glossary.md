@@ -122,3 +122,13 @@ The geo RECORD contains information about the geographic location where the even
 | `geo.region`             | STRING    | The region from which events were reported, based on IP address.                   |
 | `geo.metro`              | STRING    | The metro from which events were reported, based on IP address.                    |
 | `geo.city`               | STRING    | The city from which events were reported, based on IP address.                     |
+
+# APP INFO
+The app_info RECORD contains information about the app in which the event was initiated.
+
+| Field Name                    | Data Type | Description                                                                   |
+|-------------------------------|-----------|-------------------------------------------------------------------------------|
+| `app_info.id`                 | STRING    | The package name or bundle ID of the app.                                     |
+| `app_info.firebase_app_id`    | STRING    | The Firebase App ID associated with the app.                                  |
+| `app_info.install_source`     | STRING    | The store that installed the app.                                             |
+| `app_info.version`            | STRING    | The app's versionName (Android) or short bundle version.                      |
