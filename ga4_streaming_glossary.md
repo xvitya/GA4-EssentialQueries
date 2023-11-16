@@ -1,7 +1,7 @@
 # GA4 Streaming Schema Glossary
 >This glossary provides explanations for each field in the GA4 streaming schema used in BigQuery.
 
-# EVENT
+## EVENT
 >The event fields contain information that uniquely identifies an event.
 
 | Field Name          | Data Type | Description                                                |
@@ -45,7 +45,7 @@
 | `item_params.value.float_value`       | FLOAT     | If the item parameter is represented by a floating point value, it is populated in this field.      |
 
 
-# USER
+## USER
 
 ### User Fields
 The user fields contain information that uniquely identifies the user associated with the event.
@@ -87,7 +87,7 @@ The user_ltv RECORD contains Lifetime Value information about the user. This REC
 | `user_ltv.revenue`                   | FLOAT     | The Lifetime Value (revenue) of the user. This field is not populated in intraday tables. |
 | `user_ltv.currency`                  | STRING    | The Lifetime Value (currency) of the user. This field is not populated in intraday tables. |
 
-# DEVICE
+## DEVICE
 The device RECORD contains information about the device from which the event originated.
 
 | Field Name                               | Data Type | Description                                                                                     |
@@ -108,7 +108,7 @@ The device RECORD contains information about the device from which the event ori
 | `device.web_info.browser_version`        | STRING    | The version of the browser in which the user viewed content.                                   |
 | `device.web_info.hostname`               | STRING    | The hostname associated with the logged event.                                                 |
 
-# GEO
+## GEO
 The geo RECORD contains information about the geographic location where the event was initiated.
 
 | Field Name               | Data Type | Description                                                                       |
@@ -120,7 +120,7 @@ The geo RECORD contains information about the geographic location where the even
 | `geo.metro`              | STRING    | The metro from which events were reported, based on IP address.                    |
 | `geo.city`               | STRING    | The city from which events were reported, based on IP address.                     |
 
-# APP INFO
+## APP INFO
 The app_info RECORD contains information about the app in which the event was initiated.
 
 | Field Name                    | Data Type | Description                                                                   |
@@ -131,7 +131,7 @@ The app_info RECORD contains information about the app in which the event was in
 | `app_info.version`            | STRING    | The app's versionName (Android) or short bundle version.                      |
 
 
-# COLLECTED TRAFFIC SOURCE
+## COLLECTED TRAFFIC SOURCE
 The collected_traffic_source RECORD contains the traffic source data that was collected with the event.
 
 | Field Name                    | Data Type | Description                                                                                                          |
@@ -147,7 +147,7 @@ The collected_traffic_source RECORD contains the traffic source data that was co
 | `srsltid`                     | STRING    | The Google Merchant Center identifier that was collected with the event.                                              |
 
 
-# TRAFFIC SOURCE
+## TRAFFIC SOURCE
 The traffic_source RECORD contains information about the traffic source that first acquired the user. This record is not populated in intraday tables.
 Note: The traffic_source values do not change if the user interacts with subsequent campaigns after installation.
 
@@ -158,7 +158,7 @@ Note: The traffic_source values do not change if the user interacts with subsequ
 | `traffic_source.source`        | STRING    | Name of the network that first acquired the user. This field is not populated in intraday tables. |
 
 
-# STREAM AND PLATFORM
+## STREAM AND PLATFORM
 The stream and platform fields contain information about the stream and the app platform.
 
 | Field Name          | Data Type | Description                                                                   |
@@ -167,7 +167,7 @@ The stream and platform fields contain information about the stream and the app 
 | `platform`          | STRING    | The data stream platform (Web, iOS, or Android) from which the event originated.|
 
 
-# ECOMMERCE
+## ECOMMERCE
 The ecommerce RECORD contains information about any ecommerce events that have been set up on a website or app.
 
 | Field Name                            | Data Type | Description                                                                                          |
@@ -185,7 +185,7 @@ The ecommerce RECORD contains information about any ecommerce events that have b
 | `ecommerce.unique_items`              | INTEGER   | The number of unique items in this event, based on item_id, item_name, and item_brand.               |
 
 
-# ITEMS
+## ITEMS
 The items RECORD contains information about items included in an event. It is repeated for each item.
 
 | Field Name                                     | Data Type | Description                                                                                                 |
