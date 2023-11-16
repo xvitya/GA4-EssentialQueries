@@ -1,4 +1,4 @@
-| Platform | Event                 | Automatically Tracked `event_params`                          |
+| Platform | Event                 | Event_params     |
 |----------|-----------------------|-----------------------------------------------------------------|
 | (app)    | ad_click               | ad_event_id                                                     |
 | (app)    | ad_exposure            | firebase_screen, firebase_screen_id, firebase_screen_class, exposure_time |
